@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
 from decimal import Decimal
+from typing import Annotated
 
 from sqlalchemy import inspect, TIMESTAMP, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -16,6 +17,8 @@ from app.config import settings
 
 engine = create_async_engine(url=settings.DB_URL)
 async_session_maker = async_sessionmaker(engine, class_=AsyncSession)
+
+str_uniq = Annotated[str, mapped_column(unique=True, nullable=False)]
 
 
 class Base(AsyncAttrs, DeclarativeBase):
