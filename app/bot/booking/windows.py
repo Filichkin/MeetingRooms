@@ -39,7 +39,7 @@ def get_capacity_window() -> Window:
                 text=Const(str(i)),
                 id=str(i),
                 on_click=process_add_count_capacity
-            ) for i in range(1, 10)],
+            ) for i in range(1, 11)],
             Cancel(Const('Отмена'), on_click=cancel_logic),
             width=2
         ),
@@ -47,7 +47,7 @@ def get_capacity_window() -> Window:
     )
 
 
-def get_table_window() -> Window:
+def get_meeting_room_window() -> Window:
     """Окно выбора переговорной."""
 
     return Window(
