@@ -55,7 +55,7 @@ async def on_meeting_room_selected(
         session
         ).find_one_or_none_by_id(meeting_room_id)
     dialog_manager.dialog_data[
-        'selected__meeting_room'
+        'selected_meeting_room'
         ] = selected_meeting_room
     await callback.answer(
         f'Выбрана переговорная {selected_meeting_room.name} на '
