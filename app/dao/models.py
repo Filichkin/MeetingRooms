@@ -25,6 +25,7 @@ class MeetingRoom(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str]
+    capacity: Mapped[int]
     description: Mapped[str | None]
     bookings: Mapped[list['Booking']] = relationship(
         'Booking',
