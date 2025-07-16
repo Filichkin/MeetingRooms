@@ -192,7 +192,7 @@ class BookingDAO(BaseDAO[Booking]):
             logger.error(f'Ошибка при удалении записей: {e}')
             raise
 
-    async def book_count(self) -> Dict[str, int]:
+    async def booking_count(self) -> Dict[str, int]:
         """
         Подсчитывает количество заявок по каждому
         статусу (booked, completed, canceled).
