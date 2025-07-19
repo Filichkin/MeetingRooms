@@ -29,7 +29,7 @@ class MeetingRoom(Base):
     description: Mapped[str | None]
     bookings: Mapped[list['Booking']] = relationship(
         'Booking',
-        back_populates='table'
+        back_populates='meeting_room'
         )
 
 
@@ -76,7 +76,7 @@ class Booking(Base):
         'User',
         back_populates='bookings'
         )
-    table: Mapped['MeetingRoom'] = relationship(
+    meeting_room: Mapped['MeetingRoom'] = relationship(
         'MeetingRoom',
         back_populates='bookings'
         )
