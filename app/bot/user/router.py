@@ -8,7 +8,7 @@ from pydantic import create_model
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.bot.booking.state import BookingState
-from app.bot.user.kbs import main_user_kb, user_booking_kb, cancel_book_kb
+from app.bot.user.kbs import main_user_kb, user_booking_kb, cancel_booking_kb
 from app.bot.user.schemas import SUser
 from app.config import broker
 from app.dao.dao import UserDAO, BookingDAO
@@ -141,7 +141,7 @@ async def show_all_my_bookings(
             home_page = True
         await call.message.answer(
             message_text,
-            reply_markup=cancel_book_kb(booking.id, cancel, home_page)
+            reply_markup=cancel_booking_kb(booking.id, cancel, home_page)
             )
 
 
@@ -152,13 +152,15 @@ async def cancel_booking(
 ):
     book_id = int(call.data.split('_')[-1])
     booking_dao = BookingDAO(session_with_commit)
-    await booking_dao.cancel_book(book_id)
+    await booking_dao.cancel_booking(book_id)
     await call.answer('Бронирование отменено!', show_alert=True)
     await broker.publish(
         f'Пользователь отменил запись о брони с ID {book_id}',
         'admin_msg'
         )
-    await call.message.edit_reply_markup(reply_markup=cancel_book_kb(book_id))
+    await call.message.edit_reply_markup(
+        reply_markup=cancel_booking_kb(book_id)
+        )
 
 
 @router.callback_query(F.data.startswith('dell_book_'))
@@ -167,7 +169,7 @@ async def delete_booking(
     session_with_commit: AsyncSession
 ):
     book_id = int(call.data.split('_')[-1])
-    await BookingDAO(session_with_commit).delete_book(book_id)
+    await BookingDAO(session_with_commit).delete_booking(book_id)
     await call.answer('Запись о бронировании удалена!', show_alert=True)
     await broker.publish(
         f'Пользователь удалил запись о бронировании с ID {book_id}',

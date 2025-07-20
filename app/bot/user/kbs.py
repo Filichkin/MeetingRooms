@@ -62,7 +62,7 @@ def user_booking_kb(user_id: int, book: bool = False) -> InlineKeyboardMarkup:
     return kb.as_markup()
 
 
-def cancel_book_kb(
+def cancel_booking_kb(
         book_id: int,
         cancel: bool = False,
         home_page: bool = False
