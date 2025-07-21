@@ -119,7 +119,7 @@ async def on_confirmation(
         ):
     """Обработчик подтверждения бронирования."""
 
-    session = dialog_manager.middleware_data.get('session_without_commit')
+    session = dialog_manager.middleware_data.get('session_with_commit')
 
     # Получаем выбранные данные
     selected_meeting_room = dialog_manager.dialog_data['selected_meeting_room']

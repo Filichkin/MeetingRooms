@@ -70,7 +70,7 @@ def cancel_booking_kb(
     kb = InlineKeyboardBuilder()
     if cancel:
         kb.add(InlineKeyboardButton(
-            text='Отмена пронирования',
+            text='Отмена бронирования',
             callback_data=f'cancel_book_{book_id}'
             )
         )

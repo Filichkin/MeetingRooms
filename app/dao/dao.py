@@ -106,7 +106,7 @@ class BookingDAO(BaseDAO[Booking]):
         """
         try:
             query = select(self.model).options(
-                joinedload(self.model.table),
+                joinedload(self.model.meeting_room),
                 joinedload(self.model.time_slot)
             ).filter_by(user_id=user_id)
             result = await self._session.execute(query)

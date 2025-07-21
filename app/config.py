@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     MEETING_ROOMS_JSON: str = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         'dao',
-        'rooms.json'
+        'meeting_rooms.json'
         )
     SLOTS_JSON: str = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
