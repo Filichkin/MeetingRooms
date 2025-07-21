@@ -1,8 +1,8 @@
 """Initial revision
 
-Revision ID: 3f7a13f48b56
+Revision ID: 022e67ad96bc
 Revises: 
-Create Date: 2025-07-15 21:17:55.036384
+Create Date: 2025-07-21 17:44:31.427464
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '3f7a13f48b56'
+revision: str = '022e67ad96bc'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -24,6 +24,7 @@ def upgrade() -> None:
     op.create_table('meeting_rooms',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
+    sa.Column('capacity', sa.Integer(), nullable=False),
     sa.Column('description', sa.String(), nullable=True),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
@@ -39,13 +40,12 @@ def upgrade() -> None:
     )
     op.create_table('users',
     sa.Column('id', sa.BigInteger(), nullable=False),
-    sa.Column('email', sa.String(), nullable=False),
+    sa.Column('username', sa.String(), nullable=True),
     sa.Column('first_name', sa.String(), nullable=True),
     sa.Column('last_name', sa.String(), nullable=True),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('bookings',
     sa.Column('id', sa.Integer(), nullable=False),

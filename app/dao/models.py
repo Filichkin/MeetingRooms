@@ -4,14 +4,14 @@ from sqlalchemy import BigInteger, String
 from sqlalchemy import Integer, Date, ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
-from app.dao.database import Base, str_uniq
+from app.dao.database import Base
 
 
 class User(Base):
     __tablename__ = 'users'
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
-    email: Mapped[str_uniq]
+    username: Mapped[str | None]
     first_name: Mapped[str | None]
     last_name: Mapped[str | None]
     bookings: Mapped[list['Booking']] = relationship(
