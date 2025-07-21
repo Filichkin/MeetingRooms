@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     LOG_ROTATION: str = '10 MB'
     DB_URL: str = 'sqlite+aiosqlite:///data/db.sqlite3'
     STORE_URL: str = 'sqlite:///data/jobs.sqlite'
-    ROOMS_JSON: str = os.path.join(
+    MEETING_ROOMS_JSON: str = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         'dao',
         'rooms.json'

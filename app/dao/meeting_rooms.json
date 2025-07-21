@@ -1,0 +1,12 @@
+[
+    {"id": 1, "name": "EV6", "capacity": 6, "description": "Переговорная на 6 человек"},
+    {"id": 2, "name": "Ceed", "capacity": 8, "description": "Переговорная на 8 человек"},
+    {"id": 3, "name": "K5", "capacity": 12, "description": "Переговорная на 12 человек"},
+    {"id": 4, "name": "Stinger", "capacity": 8, "description": "Переговорная на 8 человек"},
+    {"id": 5, "name": "Cerato", "capacity": 12, "description": "Переговорная на 12 человек"},
+    {"id": 6, "name": "Mohave", "capacity": 30, "description": "Переговорная на 30 человек"},
+    {"id": 7, "name": "EV9", "capacity": 4, "description": "Переговорная на 4 человека"},
+    {"id": 8, "name": "K9", "capacity": 15, "description": "Переговорная на 15 человек"},
+    {"id": 9, "name": "Picanto", "capacity": 2, "description": "Переговорная на 2 человека"},
+    {"id": 10, "name": "EV9", "capacity": 6, "description": "Переговорная на 6 человек"}
+]
