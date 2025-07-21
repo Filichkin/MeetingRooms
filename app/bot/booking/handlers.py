@@ -156,7 +156,7 @@ async def on_confirmation(
             f'до {selected_slot.end_time}'
             )
         await broker.publish(admin_text, 'admin_msg')
-        await broker.publish(callback.from_user.id, 'notification_user')
+        await broker.publish(callback.from_user.id, 'user_notification')
         await dialog_manager.done()
     else:
         await callback.answer('Переговорные на этот слот уже заняты!')
