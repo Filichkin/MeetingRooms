@@ -54,7 +54,9 @@ def get_meeting_room_window() -> Window:
         Format('{text_meeting_room}'),
         ScrollingGroup(
             Select(
-                Format('Переговорная {item[name]} - {item[description]}'),
+                Format(
+                    'Переговорная {item[name]}'
+                    ),
                 id='selected_meeting_room',
                 item_id_getter=lambda item: str(item['id']),
                 items='meeting_rooms',

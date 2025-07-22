@@ -21,6 +21,29 @@ class TimeSlotUserDAO(BaseDAO[TimeSlot]):
 class MeetingRoomDAO(BaseDAO[MeetingRoom]):
     model = MeetingRoom
 
+    async def find_all_by_capacity(self, capacity: int):
+
+        logger.info(
+            f'Поиск всех записей {self.model.__name__} '
+            f'для количества участников: {capacity}'
+            )
+        try:
+            query = select(self.model).filter(
+                self.model.capacity >= capacity.capacity
+            )
+            result = await self._session.execute(query)
+            records = result.scalars().all()
+            logger.info(f'Найдено {len(records)} записей.')
+
+            return records
+
+        except SQLAlchemyError as e:
+            logger.error(
+                f'Ошибка при поиске всех записей для количества участников '
+                f'{capacity}: {e}'
+                )
+            raise
+
 
 class BookingDAO(BaseDAO[Booking]):
     model = Booking

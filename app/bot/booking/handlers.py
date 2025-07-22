@@ -34,7 +34,7 @@ async def process_add_count_capacity(
     dialog_manager.dialog_data['capacity'] = selected_capacity
     dialog_manager.dialog_data[
         'meeting_rooms'
-        ] = await MeetingRoomDAO(session).find_all(
+        ] = await MeetingRoomDAO(session).find_all_by_capacity(
             SCapacity(capacity=selected_capacity)
             )
     await callback.answer(f'Выбрано {selected_capacity} участников')
