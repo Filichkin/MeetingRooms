@@ -163,12 +163,13 @@ async def cancel_booking(
         )
 
 
-@router.callback_query(F.data.startswith('dell_book_'))
+@router.callback_query(F.data.startswith('delete_book_'))
 async def delete_booking(
     call: CallbackQuery,
     session_with_commit: AsyncSession
 ):
     book_id = int(call.data.split('_')[-1])
+    print(book_id)
     await BookingDAO(session_with_commit).delete_booking(book_id)
     await call.answer('Запись о бронировании удалена!', show_alert=True)
     await broker.publish(
