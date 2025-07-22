@@ -42,7 +42,7 @@ async def cmd_start(
     await message.answer(text, reply_markup=main_user_kb(user_id))
 
 
-@router.callback_query(F.data == 'about_us')
+@router.callback_query(F.data == 'booking_rules')
 async def cmd_about(call: CallbackQuery):
     await call.answer('О сервисе')
     about_text = ('🖥️ Бронирование переговорных')

@@ -64,6 +64,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+jobs.sqlite
 
 # Flask stuff:
 instance/
@@ -143,3 +144,4 @@ media/
 .DS_Store
 commands.txt
 ngrok_recovery_codes.txt
+log.txt
