@@ -31,12 +31,14 @@
 
 ##### Примеры:
 
-<p align="center">
-  <img src="examples/bot1.jpg" width="45%">
-  <img src="examples/bot2.jpg" width="45%">
-</p>
-<p align="center">
-  <img src="examples/bot3.jpg" width="30%">
-  <img src="examples/bot4.jpg" width="30%">
-  <img src="examples/bot5.jpg" width="30%">
-</p>
+<table>
+  <tr>
+    <td><img src="examples/bot1.jpg" style="max-height: 200px;"></td>
+    <td><img src="examples/bot2.jpg" style="max-height: 200px;"></td>
+  </tr>
+  <tr>
+    <td><img src="examples/bot3.jpg" style="max-height: 200px;"></td>
+    <td><img src="examples/bot4.jpg" style="max-height: 200px;"></td>
+    <td><img src="examples/bot5.jpg" style="max-height: 200px;"></td>
+  </tr>
+</table>
