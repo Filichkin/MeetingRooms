@@ -31,10 +31,12 @@
 
 ##### Примеры:
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <img src="examples/bot1.jpg" style="width: calc(50% - 10px); border: 1px solid #ccc;">
-  <img src="examples/bot2.jpg" style="width: calc(50% - 10px); border: 1px solid #ccc;">
-  <img src="examples/bot3.jpg" style="width: calc(50% - 10px); border: 1px solid #ccc;">
-  <img src="examples/bot4.jpg" style="width: calc(50% - 10px); border: 1px solid #ccc;">
-  <img src="examples/bot5.jpg" style="width: calc(50% - 10px); border: 1px solid #ccc;">
-</div>
+<p align="center">
+  <img src="examples/bot1.jpg" width="45%">
+  <img src="examples/bot2.jpg" width="45%">
+</p>
+<p align="center">
+  <img src="examples/bot3.jpg" width="30%">
+  <img src="examples/bot4.jpg" width="30%">
+  <img src="examples/bot5.jpg" width="30%">
+</p>
